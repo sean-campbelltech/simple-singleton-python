@@ -2,9 +2,7 @@ class SingletonLogger:
     _instance = None
 
     def __init__(self):
-        raise RuntimeError(
-            "This is a Singleton, invoke get_instance() to access the single instance."
-        )
+        raise RuntimeError("This is a Singleton, invoke get_instance() instead.")
 
     @classmethod
     def get_instance(cls):
