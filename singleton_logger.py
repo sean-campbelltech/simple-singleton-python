@@ -1,16 +1,15 @@
 class SingletonLogger:
     _instance = None
 
-    def __init__(self, private=False):
-        if private is False:
-            raise Exception(
-                "This is a Singleton, use get_instance() to access the single instance."
-            )
+    def __init__(self):
+        raise RuntimeError(
+            "This is a Singleton, invoke get_instance() to access the single instance."
+        )
 
     @classmethod
     def get_instance(cls):
         if cls._instance == None:
-            cls._instance = SingletonLogger(True)
+            cls._instance = cls.__new__(cls)
         return cls._instance
 
     def log(self, ex: Exception):
